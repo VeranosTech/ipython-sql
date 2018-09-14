@@ -109,7 +109,7 @@ class ResultSet(list, ColumnGuesserMixin):
         self.config = config
         self.limit = config.autolimit
         style_name = config.style
-        self.style = prettytable.__dict__[style_name.upper()]
+        self.style = prettytable.prettytable.__dict__[style_name.upper()]
         if sqlaproxy.returns_rows:
             if self.limit:
                 list.__init__(self, sqlaproxy.fetchmany(size=self.limit))
